@@ -7,5 +7,4 @@ import java.util.List;
  */
 public interface dbconnectrep {
     List<HandMessage> getHandMessages();
-//    void addHighscore(int highScore, String name) throws Exception;
 }

@@ -17,10 +17,6 @@ public class Hand {
         content.add(contentStr);
     }
 
-//    public Hand(String content) {
-//        this.content = content;
-//    }
-
     public List<String> getContent() {
         return content;
     }

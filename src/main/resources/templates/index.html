@@ -25,21 +25,36 @@
             var knappText = [[${knappen}]];
 
             if (knappText == "Remove") {
+                $('#name').val('')
+                $('#message').val('')
+                $('#room').val('')
                 $("#greetings").children().remove();
                 console.log("meddelande " + message);
                 $("#greetings").append(message);
 
             }
             else {
+                $('#name').val('')
+                $('#message').val('')
+                $('#room').val('')
+                $(".para").css("display","none");
                 $("#greetings").children().remove();
                 var $message = $(message).not('button');
                 $("#greetings").append(message);
-                console.log("meddelande " + message);
-                var newmessage = "";
                 $(".removeBtn").css("display","none");
                 $(".removeBtn").remove();
+//                $(".initiallyHidden").css("display","none");
+//                $(document).ready(function(){
+//                    $("this#stuff").click(function(){
+//                        $("this.initiallyHidden").toggle();
+//                    });
+//                });
+
+
             }
         }
+
+
 
 
         /*]]>*/

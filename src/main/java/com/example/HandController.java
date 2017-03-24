@@ -69,8 +69,9 @@ public class HandController {
     @MessageMapping("/hello")
     @SendTo("/topic/message/room")
     public Hand hand(HandMessage message) throws Exception {
-
+        System.out.println("stuff" + message.getName() + message.getMessage() + message.getRoom());
         if (message.getName().equals("hej")) {
+            System.out.println("tjaba");
             counter++;
             String snothing = "";
             handObject.addContent(snothing);
@@ -79,7 +80,8 @@ public class HandController {
             dbCounter = dbconnecthand.getId();
             dbconnecthand.addHand(message);
             String s = "";
-            s = s + "<tr><td><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td>" + message.getMessage() + "</td><td>" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"."+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
+            s = s + "<tr><td class=\"initiallyHidden\" id=\"td" + counter + "\"><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getMessage() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"."+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
+            //s = s + "<tr><td><button id=\"stuff\">stuff</button></td><td class=\"initiallyHidden\" id=\"td" + counter + "\"><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getMessage() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"."+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
             counter++;
             System.out.println("COUNTER: " + counter);
             System.out.println("dbCOunter: " + dbCounter);

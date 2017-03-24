@@ -23,11 +23,7 @@ function disconnect() {
 
 function sendName() {
 
-    stompClient.send("/app/hello", {}, JSON.stringify({
-        'name': $("#name").val(),
-        'message': $("#message").val(),
-        'room': $("#room").val()
-    }));
+    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val(), 'message': $("#message").val(),'room': $("#room").val()}));
 //JSON.stringify({'name': '<tr><td>' + $("#name").val() + '</td><td>' + $("#message").val() + '</td><td>' + $("#room").val() + '</td><td>'}));
     //console.log("texten" + JSON.stringify({'name': $("#name").val(), 'message': $("#message").val()}));
 }

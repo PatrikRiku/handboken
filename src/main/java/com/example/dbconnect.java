@@ -12,22 +12,7 @@ import java.util.List;
 public class dbconnect implements dbconnectrep {
     @Autowired
     private DataSource dataSource;
-//
-//    @Override
-//    public List<String> getImgUrl() {
-//
-//        try (Connection conn = dataSource.getConnection();
-//             Statement stmt = conn.createStatement();
-//             ResultSet rs = stmt.executeQuery("SELECT url FROM dbo.images")) {
-//            List<String> urls = new ArrayList<>();
-//            while (rs.next()) urls.add(rs.getString("url"));
-//            return urls;
-//        } catch (SQLException e) {
-//            List<String> urls = new ArrayList<>();
-//            return urls;
-//        }
-//    }
-    //@Override
+
     public void addHand(HandMessage handmessage) throws Exception{
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("insert into hands(name, text, room, date) values(?, ?, ?, GETDATE());")) {
@@ -83,9 +68,4 @@ public class dbconnect implements dbconnectrep {
         }
 
     }
-//
-//
-//    private List<String> rsBlog(ResultSet rs) throws SQLException {
-//        return new Blog(rs.getLong("id"), rs.getString("title"));
-//    }
 }
