@@ -25,6 +25,7 @@
             var knappText = [[${knappen}]];
 
             if (knappText == "Remove") {
+                $("#hidehide").css("display","block");
                 $("#greetings").children().remove();
                 $("#greetings").append(message);
 
@@ -49,12 +50,12 @@
 <div id="main-content" class="container">
     <div class="row">
         <form class="form-inline">
-            <!--<div class="form-group">
+            <div id="hidehide" class="form-group">
                 <label for="connect">WebSocket connection:
                 <button id="connect" class="btn btn-default" type="submit">Connect</button>
                 <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
                 </button></label>
-            </div>-->
+            </div>
         </form>
 
         <div class="col-md-12">
