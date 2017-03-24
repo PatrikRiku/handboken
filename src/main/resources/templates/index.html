@@ -25,36 +25,19 @@
             var knappText = [[${knappen}]];
 
             if (knappText == "Remove") {
-                $('#name').val('')
-                $('#message').val('')
-                $('#room').val('')
+                $("#hidehide").css("display","block");
                 $("#greetings").children().remove();
-                console.log("meddelande " + message);
                 $("#greetings").append(message);
 
             }
             else {
-                $('#name').val('')
-                $('#message').val('')
-                $('#room').val('')
-                $(".para").css("display","none");
                 $("#greetings").children().remove();
                 var $message = $(message).not('button');
                 $("#greetings").append(message);
                 $(".removeBtn").css("display","none");
                 $(".removeBtn").remove();
-//                $(".initiallyHidden").css("display","none");
-//                $(document).ready(function(){
-//                    $("this#stuff").click(function(){
-//                        $("this.initiallyHidden").toggle();
-//                    });
-//                });
-
-
             }
         }
-
-
 
 
         /*]]>*/
@@ -67,22 +50,25 @@
 <div id="main-content" class="container">
     <div class="row">
         <form class="form-inline">
-            <!--<div class="form-group">
+            <div id="hidehide" class="form-group">
                 <label for="connect">WebSocket connection:
-                <button id="connect" class="btn btn-default" type="submit">Connect</button>
-                <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
-                </button></label>
-            </div>-->
+                    <button id="connect" class="btn btn-default" type="submit">Connect</button>
+                    <button id="disconnect" class="btn btn-default" type="submit" disabled="disabled">Disconnect
+                    </button></label>
+            </div>
         </form>
 
         <div class="col-md-12">
             <h1><span class="fa fa-hand-stop-o"></span>Handboken</h1>
+            <tr>
+                <p id="help"><strong>Need help with something? Raise your hand and help will be on its way</strong></p>
+            </tr>
             <form class="form-inline">
                 <div class="form-group">
                     <input type="text" id="name" class="form-control" placeholder="Your name here..."/>
                     <input type="text" id="message" class="form-control" placeholder="Describe your problem here..."/>
                     <input type="text" id="room" class="form-control" placeholder="Tell us where you are here..."/>
-                    <button id="send" class="btn btn-default" type="submit">Send</button>
+                    <button id="send" class="btn btn-default" type="submit"><i class="fa fa-hand-paper-o" aria-hidden="true"></i></button>
                 </div>
 
             </form>
@@ -93,9 +79,7 @@
         <div class="col-md-12">
             <table id="conversation" class="table table-striped">
                 <thead>
-                <tr>
-                    <th>Raise your hand</th>
-                </tr>
+
                 </thead>
                 <tbody id="greetings">
                 </tbody>

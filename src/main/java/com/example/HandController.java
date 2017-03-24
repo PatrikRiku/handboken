@@ -80,7 +80,7 @@ public class HandController {
 //            dbCounter = dbconnecthand.getId();
 //            dbconnecthand.addHand(message);
             String s = "";
-            s = s + "<tr><td class=\"initiallyHidden\" id=\"td" + counter + "\"><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getMessage() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"."+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
+            s = s + "<tr><td class=\"initiallyHidden\" id=\"td" + counter + "\"><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getMessage() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"P"+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
             //s = s + "<tr><td><button id=\"stuff\">stuff</button></td><td class=\"initiallyHidden\" id=\"td" + counter + "\"><i class=\"fa fa-hand-paper-o\" aria-hidden=\"true\"></i>" + message.getName() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getMessage() + "</td><td class=\"initiallyHidden\" id=\"td" + counter + "\">" + message.getRoom() + " </td><td><button class=\"removeBtn\" id=\"btn" + counter +"."+dbCounter + "\" onclick=\"getParent(this)\">Remove</button></td></tr>'";
             counter++;
             System.out.println("COUNTER: " + counter);
@@ -93,9 +93,10 @@ public class HandController {
     @MessageMapping("/delete")
     @SendTo("/topic/message/room")
     public Hand handDelete(HandMessage message) throws Exception {
-        int splitz = message.toString().indexOf('.'); //används för att separera databasid från buttonId
-        int away = Integer.parseInt(message.getName().substring(3,splitz+1)); //används för att separera databasid från buttonId
-        //dbconnecthand.changeHand(Integer.parseInt(message.getName().substring(splitz+2))+1); //Sätter databas på "löst"
+        char splitter = 'P';
+        int splitz = message.getName().indexOf(splitter); //används för att separera databasid från buttonId
+        int away = Integer.parseInt(message.getName().substring(3,splitz)); //används för att separera databasid från buttonId
+        //dbconnecthand.changeHand(Integer.parseInt(message.getName().substring(splitz+1))+1); //Sätter databas på "löst"
         handObject.getContent().set(away, ""); //tar bort från html
 
 
