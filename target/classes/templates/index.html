@@ -26,12 +26,18 @@
             var knappText = [[${knappen}]];
 
             if (knappText == "Remove") {
+                $( "#name" ).val('');
+                $( "#message" ).val('');
+                $( "#room" ).val('');
                 $("#hidehide").css("display","block");
                 $("#greetings").children().remove();
                 $("#greetings").append(message);
 
             }
             else {
+                $( "#name" ).val('');
+                $( "#message" ).val('');
+                $( "#room" ).val('');
                 $("#greetings").children().remove();
                 var $message = $(message).not('button');
                 $("#greetings").append(message);
